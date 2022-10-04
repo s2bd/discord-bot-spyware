@@ -2,6 +2,12 @@
 ![](Serverwise.jpg)
 ### Message logging system for Discord bots. Primarily written for bots following the Discord.js API (Node.js).
 
+- [x] 💬️ Auto-record messages across multiple servers
+- [x] 😴️ Store activities and track suspicious behavior while you're AFK
+- [x] ♻️ Keep permanent backup records of messages as a recovery
+- [x] 👀️ Know who sends what, even if they delete their messages
+
+
 ## Overview
 > Made as part of [MuxDay](https://github.com/muxworks/MuxDay) back in May 2022. Now discretely available for integrating this simple but effective algorithm into your bots with ease!
 The main program/algorithm is very simple. It just relies on a single function (I named it `logwrite` by default, but doesn't have to be the same name),
