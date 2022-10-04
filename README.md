@@ -55,3 +55,8 @@ Don't worry about the weird escape characters and strings in front of the variab
 
 The end result would be something like this:
 ![](serverwise-terminal.png)
+
+## Trivia
+- This is a slightly more advanced version of the same [Discord Server Logger](https://github.com/dmimukto/discord-server-logger) algorithm I had posted for a Discord.py bot much earlier in 2021.
+- I don't have too many 'fully original' works on Github yet, so this little algorithm is one of the few at the moment.
+- In case you're too lazy or inexperienced with Discord.js, you can just find a way to integrate [this preset file](/messageCreate.js) with your bot. Although it may be trickier than trying to just add in the functions yourself.
