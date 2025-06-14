@@ -1,4 +1,4 @@
-# Serverwise - Discord Message Logger Bot Algorithm
+# Serverwise - Discord Message Logging System
 ![](Serverwise.jpg)
 ### Message logging system for Discord bots. Primarily written for bots following the Discord.js API (Node.js).
 
@@ -9,7 +9,7 @@
 
 
 ## Overview
-> Made as part of [MuxDay](https://github.com/muxworks/MuxDay) back in May 2022. Now discretely available for integrating this simple but effective algorithm into your bots with ease!
+> Made as part of a Discord.js bot back in May 2022. Now discretely available for integrating this simple but effective algorithm into your bots with ease!
 The main program/algorithm is very simple. It just relies on a single function (I named it `logwrite` by default, but doesn't have to be the same name),
 ```javascript
 logwrite(msg,server,chatroom);
@@ -42,10 +42,7 @@ logwrite(`[${String(new Date).split(" ", 5).join(" ")}]`+ String(message.author.
 ```
 And that's it! You're good to go!
 
-### Example directory from [MuxDay](https://github.com/muxworks/MuxDay)
-![](serverwise-logs.png)
-
-Have fun spying on your friends' servers or doing whatever your evil heart desires. I don't know what to advise you; I'm not your parent to tell you what's right and wrong.
+Have fun spying on your friends' servers or doing whatever your evil heart desires. I don't know what to advise you.
 
 ## Bonus : Terminal Output
 > This is an optional modification where you can temporarily monitor the activities straight from the bot's terminal.
@@ -57,12 +54,4 @@ console.log('\x1b[36m%s\x1b[0m',message.channel.guild.name,"\x1b[33m#"+message.c
 // ... other lines of code
 };
 ```
-Don't worry about the weird escape characters and strings in front of the variables. They're there to 'color-code' the output neatly.
-
-The end result would be something like this:
-![](serverwise-terminal.png)
-
-## Trivia
-- This is a slightly more advanced version of the same [Discord Server Logger](https://github.com/dmimukto/discord-server-logger) algorithm I had posted for a Discord.py bot much earlier in 2021.
-- I don't have too many 'fully original' works on Github yet, so this little algorithm is one of the few at the moment.
-- In case you're too lazy or inexperienced with Discord.js, you can just find a way to integrate [this preset file](/messageCreate.js) with your bot. Although it may be trickier than trying to just add in the functions yourself.
+Don't worry about the weird escape characters and strings (ANSI encoding) in front of the variables. They're there to 'color-code' the output neatly.
