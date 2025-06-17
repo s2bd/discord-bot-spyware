@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardian Bot Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .member-list { max-height: 500px; overflow-y: auto; }
+    .activity-list { max-height: 500px; overflow-y: auto; }
+    .avatar { width: 40px; height: 40px; border-radius: 50%; margin-right: 0.5rem; }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold text-center mb-6">Guardian Bot Dashboard</h1>
+    <div id="serverAccordion">
+      <% servers.forEach((server, index) => { %>
+        <div class="bg-white rounded-lg shadow mb-4">
+          <button class="w-full text-left p-4 bg-gray-200 hover:bg-gray-300 font-semibold flex justify-between items-center" onclick="toggleAccordion('collapse<%= server.id %>')">
+            <span><%= server.name %> (ID: <%= server.id %>) - <%= server.memberCount %> Members, <%= server.activityCount %> Activities</span>
+            <span class="text-xl">▼</span>
+          </button>
+          <div id="collapse<%= server.id %>" class="p-4 <%= index === 0 ? '' : 'hidden' %>">
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="w-full md:w-1/3 member-list">
+                <h2 class="text-xl font-semibold mb-2">Members (<%= server.memberCount %>)</h2>
+                <ul class="space-y-2">
+                  <% server.members.forEach(member => { %>
+                    <li class="flex items-center p-2 bg-gray-50 rounded">
+                      <img src="<%= member.avatar %>" alt="Avatar" class="avatar">
+                      <div>
+                        <strong><%= member.name %></strong><br>
+                        <span class="text-sm text-gray-600">ID: <%= member.id %></span>
+                      </div>
+                    </li>
+                  <% }) %>
+                </ul>
+              </div>
+              <div class="w-full md:w-2/3 activity-list">
+                <h2 class="text-xl font-semibold mb-2">Server Activity (<%= server.activityCount %>)</h2>
+                <ul class="space-y-2">
+                  <% server.activities.forEach(activity => { %>
+                    <li class="p-2 bg-gray-50 rounded">
+                      <span class="text-sm text-gray-600"><%= activity.time %></span>: <%= activity.content %>
+                    </li>
+                  <% }) %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  <script>
+    function toggleAccordion(id) {
+      const element = document.getElementById(id);
+      const isHidden = element.classList.contains('hidden');
+      element.classList.toggle('hidden', !isHidden);
+      const button = element.previousElementSibling;
+      button.querySelector('span:last-child').textContent = isHidden ? '▲' : '▼';
+    }
+  </script>
+</body>
+</html>
