@@ -55,3 +55,21 @@ console.log('\x1b[36m%s\x1b[0m',message.channel.guild.name,"\x1b[33m#"+message.c
 };
 ```
 Don't worry about the weird escape characters and strings (ANSI encoding) in front of the variables. They're there to 'color-code' the output neatly.
+
+## Update - June 2025
+
+Alright here's what you need to do:
+
+1. Install dependencies, e.g.
+```
+npm install discord.js express ejs dotenv tailwindcss
+```
+2. Create an .env file with your bot token, e.g.
+```
+TOKEN=your_bot_token
+```
+3. Run your bot
+```
+node .
+```
+If you don't have a bot, use the [main.js](/main.js) file as a basic "core" to let the Serverwise system do its work.
